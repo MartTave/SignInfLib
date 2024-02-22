@@ -4,8 +4,11 @@ A library that should contains everthing you need to complete the SignInf course
 
 ## Installation
 
-```julia-repl
-julia> using Pkg;Pkg.add("https://github.com/MartTave/SignInfLib")
+```julia
+using Pkg
+Pkg.add("https://github.com/MartTave/SignInfLib")
+# You can now use the lib in any files
+using SignInfLib
 ```
 
 ## Functions
@@ -14,8 +17,8 @@ julia> using Pkg;Pkg.add("https://github.com/MartTave/SignInfLib")
 
 This function returns the entropy of an array of probabilities
 
-```julia-repl
-julia> using SignInfLib
-julia> SignInfLib.getEntropy([0.5, 0.5])
-1.0
+```julia
+using SignInfLib
+SignInfLib.getEntropy([0.5, 0.5])
+# Returns 1.0
 ```
