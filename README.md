@@ -6,7 +6,7 @@ A library that should contains everthing you need to complete the SignInf course
 
 ```julia
 using Pkg
-Pkg.add("https://github.com/MartTave/SignInfLib")
+Pkg.add(url="https://github.com/MartTave/SignInfLib")
 # You can now use the lib in any files
 using SignInfLib
 ```
