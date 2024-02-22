@@ -1,4 +1,4 @@
-name = "MyPkg"
+name = "SignInfLib"
 uuid = "f9b54039-985c-4f11-89e1-b0cf061e74fb"
 authors = ["MartTave <martin.tavernier256@gmail.com> and contributors"]
 version = "1.0.0-DEV"
