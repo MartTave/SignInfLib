@@ -26,4 +26,5 @@ function convertToProb2d(data)
             push!(last(res), j / tot)
         end
     end
+    return res
 end
