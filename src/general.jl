@@ -23,7 +23,7 @@ function convertToProb2d(data)
     for i in data
         push!(res, [])
         for j in i
-            push!(res[-1], j / tot)
+            push!(last(res), j / tot)
         end
     end
 end
