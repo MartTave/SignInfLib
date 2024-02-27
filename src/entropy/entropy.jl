@@ -6,7 +6,7 @@ Calculate the Shannon entropy of an array of probabilities
 The array passed in parameter should contains only the probability of an event of occuring
 
 # Examples 
-```julia-repl
+```y
 julia> getEntropy([0.5, 0.5])
 1.0
 ```
