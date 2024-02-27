@@ -7,6 +7,6 @@ function getJoinedEntropy(data)
             ent_tot -= j * log2(j)
         end
     end
-    return en_tot
+    return ent_tot
 end
     
