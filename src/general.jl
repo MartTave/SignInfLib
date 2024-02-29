@@ -20,6 +20,7 @@ function convertToProb2d(data)
             tot += j
         end
     end
+    println(tot)
     for i in data
         push!(res, [])
         for j in i
