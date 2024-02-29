@@ -13,7 +13,7 @@ using Test
     @test SignInfLib.getEntropy(data1) == 1.8464393446710154
     @test SignInfLib.getEntropy(data2) == 1.0
     @test SignInfLib.getConditionnalEntropy(data3, -1, 4) == 2.933398475452774
-    @test SignInfLib.getConditionnalEntropy(data3, -1, 4) == 3.2474983728280318
+    @test SignInfLib.getConditionnalEntropy(data3, -1, 6) == 3.2474983728280318
     @test SignInfLib.getConditionnalEntropy(data3, 5, -1) == 2.207612589786564
     @test SignInfLib.getSharedEntropy(data3) == 0.19346289944435568
 end
