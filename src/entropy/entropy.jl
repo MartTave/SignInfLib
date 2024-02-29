@@ -19,3 +19,54 @@ function getEntropy(data)
     end
     return -ent_tot
 end
+
+function getEntropyGivenY(data, row)
+    ent = 0
+    tot = sum(data[row])
+    print(data[row])
+    for i in data[row]
+        prob = i / tot
+        ent -= prob * log(2, prob)
+    end
+    return ent
+end
+
+function getEntropyGivenX(data, column)
+    ent = 0
+    tot = 0
+    for i in data
+        tot += i[column]
+    end
+    for i in data
+        prob = i[column] / tot
+        ent -= prob * log(2, prob)
+    end
+    return ent
+end
+
+function getJoinedEntropy(data)
+    ent_tot = 0
+    for i in data
+        for j in i
+            ent_tot -= j * log(2, j)
+        end
+    end
+    return ent_tot
+end
+    
+
+function getSharedEntropy(data)
+    xProb = sum(data)
+    yProb = []
+    for i in data
+        currentTot = 0
+        for j in i
+            currentTot += j
+        end
+        push!(yProb, currentTot)
+    end
+    x = getEntropy(xProb)
+    y = getEntropy(yProb)
+    joined = getJoinedEntropy(data)
+    return x + y - joined
+end
