@@ -1,3 +1,4 @@
+include("../general.jl")
 
 """
 getEntropy(data)
@@ -26,7 +27,7 @@ Compute the entropy either for a row OR a column
 
 Pass either the row number or the column number to choose on which orientation you want to compute it
 """
-function getConditionnalEntropy(data, row=-1, column=-1)
+function getConditionnalEntropy(data, row, column)
     if row == -1
         ent = 0
         tot = 0
@@ -42,14 +43,12 @@ function getConditionnalEntropy(data, row=-1, column=-1)
     if column == -1
         ent = 0
         tot = sum(data[row])
-        print(data[row])
         for i in data[row]
             prob = i / tot
             ent -= prob * log(2, prob)
         end
         return ent
     end
-    
 end
 
 """
