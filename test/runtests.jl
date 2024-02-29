@@ -12,10 +12,10 @@ using Test
     @test SignInfLib.getEntropy(frequency) == 3.99381318311237
     @test SignInfLib.getEntropy(data1) == 1.8464393446710154
     @test SignInfLib.getEntropy(data2) == 1.0
-    @test SignInfLib.getEntropyGivenX(data3, 4) == 2.933398475452774
-    @test SignInfLib.getEntropyGivenX(data3, 6) == 3.2474983728280318
-    @test SignInfLib.getEntropyGivenY(data3, 5) == 2.207612589786564
-    @test SignInfLib.getSharedEntropy(data3) == 0
+    @test SignInfLib.getConditionnalEntropy(data3, column=4) == 2.933398475452774
+    @test SignInfLib.getConditionnalEntropy(data3, column=4) == 3.2474983728280318
+    @test SignInfLib.getConditionnalEntropy(data3, row=5) == 2.207612589786564
+    @test SignInfLib.getSharedEntropy(data3) == 0.19346289944435568
 end
 
 @testset "General" begin
