@@ -22,5 +22,3 @@ function getEntropyGivenX(data, column)
     end
     return ent
 end
-
-println(getEntropyGivenY(data, 5))
