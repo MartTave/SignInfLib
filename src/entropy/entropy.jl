@@ -1,5 +1,3 @@
-include("../general.jl")
-
 """
 getEntropy(data)
 Calculate the Shannon entropy of an array of probabilities
