@@ -19,29 +19,43 @@ function zipEncode(src)
             currSeq = ""
         end
     end
-    println(found)
     return join(res)
 end
 
 function zipDecode(encoded)
-    if length(encoded) % 2 != 0
-        println("Length of encoded message should be pair !!")
-        return
-    end
     dict = []
     decoded = ""
     halvedLength = floor(Int64, length(encoded) / 2)
     println(halvedLength)
-    for i in 1:halvedLength
-        curr = encoded[i * 2 - 1:i*2]
-        index = parse(Int64, curr[1])
-        added = curr[2]
+    done = false
+    currIndex = 1
+    indexLength = 1
+    while !done
+        curr = encoded[currIndex: currIndex + indexLength]
+        index = parse(Int64, first(curr, indexLength))
         if index != 0
-            push!(dict, dict[index] * added)
-            decoded = decoded * last(dict)
+            decSymb = dict[index] * last(curr)
+            if decSymb in dict
+                # If it's already in dict -> means we need to take 1 digit more for index
+                indexLength += 1
+                continue
+            else
+                # Then it's a new symbol -> we can add it to the dict
+                push!(dict, decSymb)
+                decoded = decoded * decSymb
+                currIndex += indexLength + 1
+                indexLength = 1
+            end
         else
-            push!(dict, added)
-            decoded = decoded * added
+            # It means it has no start in dict -> we can directly add it to the dict
+            push!(dict, last(curr))
+            decoded = decoded * last(curr)
+            currIndex += indexLength + 1
+            indexLength = 1
+        end
+        println(currIndex, " ", length(encoded))
+        if currIndex >= length(encoded)
+            done = true
         end
     end
     return decoded

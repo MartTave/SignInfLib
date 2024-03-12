@@ -43,8 +43,12 @@ end
 
 
 @testset "Encoding" begin
+    source = "xyxxyxxxxyxyyyxxyxxxx"
+    encoded = "0x0y1x2x3x4y2y3y5x"
     test = "Salut a tous je suis un texte"
-    @test SignInfLib.zipEncode(test) == "0x0y1x2x3x4y2y3y5x"
-    @test SignInfLib.zipDecode("0x0y1x2x3x4y2y3y5x") == "xyxxyxxxxyxyyyxxyxxxx"
-    @test SignInfLib.zipDecode(SignInfLib.zipEncode(test)) == test
+    @test SignInfLib.zipEncode(source) == encoded
+    @test SignInfLib.zipDecode(encoded) == source
+    encoded_test = SignInfLib.zipEncode(test)
+    println(encoded_test)
+    @test SignInfLib.zipDecode(encoded_test) == test
 end
