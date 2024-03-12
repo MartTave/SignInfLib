@@ -40,3 +40,11 @@ end
     @test res_4[1][1] == res_4[2][1] / 2
     @test res_4[1][1] == res_4[3][1] / 4
 end
+
+
+@testset "Encoding" begin
+    test = "Salut a tous je suis un texte"
+    @test SignInfLib.zipEncode(test) == "0x0y1x2x3x4y2y3y5x"
+    @test SignInfLib.zipDecode("0x0y1x2x3x4y2y3y5x") == "xyxxyxxxxyxyyyxxyxxxx"
+    @test SignInfLib.zipDecode(SignInfLib.zipEncode(test)) == test
+end
